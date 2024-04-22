@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+public enum AnyError: Error {
+    case userNotFound
+}
+
+extension AnyError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .userNotFound:
+            "Current user not found."
+        }
+    }
+}

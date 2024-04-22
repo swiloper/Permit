@@ -12,6 +12,7 @@ struct LoginView: View {
     
     // MARK: - Properties
     
+    @AppStorage("isAuthorized") private var isAuthorized = false
     @EnvironmentObject private var app: AppState
     @EnvironmentObject private var users: UserManager
     @StateObject private var model = LoginViewModel()
@@ -21,16 +22,24 @@ struct LoginView: View {
     private func authorize() {
         if model.flow == .register {
             model.register {
-                app.error = $0
-                
-                if app.error == nil {
-                    users.fetch()
-                }
+                completion($0)
             }
         } else {
             model.login {
-                app.error = $0
+                completion($0)
             }
+        }
+    }
+    
+    // MARK: - Completion
+    
+    private func completion(_ error: Error?) {
+        app.error = error
+        model.isLoading = false
+        
+        if app.error == nil {
+            isAuthorized = true
+            users.fetch()
         }
     }
     

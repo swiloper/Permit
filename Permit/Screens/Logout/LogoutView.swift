@@ -11,6 +11,7 @@ struct LogoutView: View {
     
     // MARK: - Properties
     
+    @AppStorage("isAuthorized") private var isAuthorized = false
     @EnvironmentObject private var app: AppState
     
     // MARK: - Body
@@ -30,6 +31,7 @@ struct LogoutView: View {
         Button {
             do {
                 try FirebaseManager.shared.auth.signOut()
+                isAuthorized = false
             } catch let error {
                 app.error = error
             }

@@ -8,10 +8,29 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    // MARK: - Properties
+    
+    @AppStorage("isAuthorized") private var isAuthorized = false
+    @EnvironmentObject private var users: UserManager
+    
+    @State private var isLoginVisible: Bool = true
+    
+    // MARK: - Body
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if isAuthorized {
+                LogoutView()
+            } else {
+                LoginView()
+            }
+        } //: ZStack
+        .animation(.default, value: isAuthorized)
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     MainView()

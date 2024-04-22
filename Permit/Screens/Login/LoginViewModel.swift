@@ -33,9 +33,7 @@ final class LoginViewModel: ObservableObject {
     func login(completion: @escaping (Error?) -> Void) {
         isLoading = true
         
-        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { [weak self] result, error in
-            guard let self else { return }
-            isLoading = false
+        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, error in
             completion(error)
         }
     }
@@ -47,52 +45,60 @@ final class LoginViewModel: ObservableObject {
         
         FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard let self else { return }
-            isLoading = false
             
             if let error {
                 completion(error)
                 return
             }
             
-            storage(data: data, name: name, surname: surname, email: email)
-            completion(nil)
+            storage(data: data) { [weak self] link, error in
+                guard let self else { return }
+                
+                if let error {
+                    completion(error)
+                    return
+                }
+                
+                if let link {
+                    guard let id = FirebaseManager.shared.auth.currentUser?.uid else {
+                        completion(AnyError.userNotFound)
+                        return
+                    }
+                    
+                    save(user: User(id: id, image: link.absoluteString, name: name, surname: surname, email: email, isFaceScanned: false)) { error in
+                        completion(error)
+                    }
+                }
+            }
         }
     }
     
     // MARK: - Storage
     
-    private func storage(data: Data?, name: String, surname: String, email: String) {
+    private func storage(data: Data?, completion: @escaping (URL?, Error?) -> Void) {
         guard let id = FirebaseManager.shared.auth.currentUser?.uid, let data else { return }
         let reference = FirebaseManager.shared.storage.reference(withPath: id)
         
         reference.putData(data, metadata: nil) { metadata, error in
             if let error {
+                completion(nil, error)
                 return
             }
             
-            reference.downloadURL { [weak self] link, error in
-                guard let self else { return }
-                if let error {
-                    return
-                }
-                
-                if let link {
-                    information(link: link, name: name, surname: surname, email: email)
-                }
+            reference.downloadURL { link, error in
+                completion(link, error)
             }
         }
     }
     
-    // MARK: - Information
+    // MARK: - Save
     
-    private func information(link: URL, name: String, surname: String, email: String) {
-        guard let id = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        let user = User(id: id, image: link.absoluteString, name: name, surname: surname, email: email, isFaceScanned: false)
-        
+    private func save(user: User, completion: @escaping (Error?) -> Void) {
         do {
-            try FirebaseManager.shared.firestore.collection("users").document(id).setData(from: user)
+            try FirebaseManager.shared.firestore.collection("users").document(user.id).setData(from: user)
+            completion(nil)
         } catch let error {
-            return
+            completion(error)
         }
     }
 }
