@@ -122,14 +122,14 @@ struct LoginView: View {
     
     private var name: some View {
         TextField(String.empty, text: $model.name, prompt: Text("Name"))
-            .modifier(LoginTextFieldModifier(keyboard: .alphabet))
+            .modifier(RoundedTextFieldModifier(keyboard: .alphabet))
     }
     
     // MARK: - Surname
     
     private var surname: some View {
         TextField(String.empty, text: $model.surname, prompt: Text("Surname"))
-            .modifier(LoginTextFieldModifier(keyboard: .alphabet))
+            .modifier(RoundedTextFieldModifier(keyboard: .alphabet))
     }
     
     // MARK: - Email
@@ -138,7 +138,7 @@ struct LoginView: View {
         TextField(String.empty, text: $model.email, prompt: Text("Email"))
             .autocapitalization(.none)
             .textContentType(.oneTimeCode)
-            .modifier(LoginTextFieldModifier(keyboard: .alphabet))
+            .modifier(RoundedTextFieldModifier(keyboard: .alphabet))
     }
     
     // MARK: - Password
@@ -147,7 +147,7 @@ struct LoginView: View {
         SecureField(String.empty, text: $model.password, prompt: Text("Password"))
             .autocapitalization(.none)
             .textContentType(.oneTimeCode)
-            .modifier(LoginTextFieldModifier(keyboard: .alphabet))
+            .modifier(RoundedTextFieldModifier(keyboard: .alphabet))
     }
     
     // MARK: - Prompt

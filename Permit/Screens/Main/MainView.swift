@@ -21,7 +21,11 @@ struct MainView: View {
     var body: some View {
         ZStack {
             if isAuthorized {
-                LogoutView()
+                if let user = users.current, let group = user.group {
+                    TabsView(id: group)
+                } else {
+                    CreateEnergyGroupPromptView()
+                }
             } else {
                 LoginView()
             }

@@ -16,13 +16,26 @@
 		F46BA8F32BD51D9400FE8422 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA8F22BD51D9400FE8422 /* LoginView.swift */; };
 		F46BA8F52BD51E1E00FE8422 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA8F42BD51E1E00FE8422 /* LoginViewModel.swift */; };
 		F46BA8F92BD51F6000FE8422 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA8F82BD51F6000FE8422 /* FirebaseManager.swift */; };
-		F46BA8FC2BD52EB500FE8422 /* LoginTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA8FB2BD52EB500FE8422 /* LoginTextFieldModifier.swift */; };
+		F46BA8FC2BD52EB500FE8422 /* RoundedTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA8FB2BD52EB500FE8422 /* RoundedTextFieldModifier.swift */; };
 		F46BA90D2BD587FD00FE8422 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA90C2BD587FD00FE8422 /* LogoutView.swift */; };
 		F46BA9102BD588A800FE8422 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA90F2BD588A800FE8422 /* MainView.swift */; };
 		F46BA9132BD58B5A00FE8422 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9122BD58B5A00FE8422 /* UserManager.swift */; };
 		F46BA9152BD58B7C00FE8422 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9142BD58B7C00FE8422 /* User.swift */; };
 		F46BA9172BD5B54F00FE8422 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9162BD5B54F00FE8422 /* AppState.swift */; };
 		F46BA91D2BD5C36400FE8422 /* AnyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA91C2BD5C36400FE8422 /* AnyError.swift */; };
+		F46BA9202BD63EFF00FE8422 /* CreateEnergyGroupPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA91F2BD63EFF00FE8422 /* CreateEnergyGroupPromptView.swift */; };
+		F46BA9222BD6433D00FE8422 /* CreateEnergyGroupForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9212BD6433D00FE8422 /* CreateEnergyGroupForm.swift */; };
+		F46BA9242BD644BB00FE8422 /* CreateEnergyGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9232BD644BB00FE8422 /* CreateEnergyGroupViewModel.swift */; };
+		F46BA9262BD6487000FE8422 /* EnergyGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9252BD6487000FE8422 /* EnergyGroup.swift */; };
+		F46BA9292BD6523100FE8422 /* EnergyGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9282BD6523100FE8422 /* EnergyGroupView.swift */; };
+		F46BA92B2BD65AEF00FE8422 /* EnergyGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA92A2BD65AEE00FE8422 /* EnergyGroupManager.swift */; };
+		F46BA92D2BD665F100FE8422 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA92C2BD665F100FE8422 /* TabsView.swift */; };
+		F46BA9302BD6664500FE8422 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA92F2BD6664500FE8422 /* Tab.swift */; };
+		F46BA9322BD66BA900FE8422 /* EnergyGroupMembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9312BD66BA800FE8422 /* EnergyGroupMembersView.swift */; };
+		F46BA9352BD676AD00FE8422 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F46BA9342BD676AD00FE8422 /* Nuke */; };
+		F46BA9372BD676AD00FE8422 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F46BA9362BD676AD00FE8422 /* NukeUI */; };
+		F46BA9392BD6781E00FE8422 /* EnergyGroupMemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9382BD6781E00FE8422 /* EnergyGroupMemberRowView.swift */; };
+		F46BA93B2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA93A2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift */; };
 		F4C0DA022BBD6176004D897B /* PermitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0DA012BBD6176004D897B /* PermitApp.swift */; };
 		F4C0DA062BBD6177004D897B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0DA052BBD6177004D897B /* Assets.xcassets */; };
 		F4C0DA092BBD6177004D897B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0DA082BBD6177004D897B /* Assets.xcassets */; };
@@ -35,13 +48,24 @@
 		F46BA8F22BD51D9400FE8422 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F46BA8F42BD51E1E00FE8422 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F46BA8F82BD51F6000FE8422 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		F46BA8FB2BD52EB500FE8422 /* LoginTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldModifier.swift; sourceTree = "<group>"; };
+		F46BA8FB2BD52EB500FE8422 /* RoundedTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextFieldModifier.swift; sourceTree = "<group>"; };
 		F46BA90C2BD587FD00FE8422 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		F46BA90F2BD588A800FE8422 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F46BA9122BD58B5A00FE8422 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		F46BA9142BD58B7C00FE8422 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F46BA9162BD5B54F00FE8422 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		F46BA91C2BD5C36400FE8422 /* AnyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyError.swift; sourceTree = "<group>"; };
+		F46BA91F2BD63EFF00FE8422 /* CreateEnergyGroupPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEnergyGroupPromptView.swift; sourceTree = "<group>"; };
+		F46BA9212BD6433D00FE8422 /* CreateEnergyGroupForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEnergyGroupForm.swift; sourceTree = "<group>"; };
+		F46BA9232BD644BB00FE8422 /* CreateEnergyGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEnergyGroupViewModel.swift; sourceTree = "<group>"; };
+		F46BA9252BD6487000FE8422 /* EnergyGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyGroup.swift; sourceTree = "<group>"; };
+		F46BA9282BD6523100FE8422 /* EnergyGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyGroupView.swift; sourceTree = "<group>"; };
+		F46BA92A2BD65AEE00FE8422 /* EnergyGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyGroupManager.swift; sourceTree = "<group>"; };
+		F46BA92C2BD665F100FE8422 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		F46BA92F2BD6664500FE8422 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		F46BA9312BD66BA800FE8422 /* EnergyGroupMembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyGroupMembersView.swift; sourceTree = "<group>"; };
+		F46BA9382BD6781E00FE8422 /* EnergyGroupMemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyGroupMemberRowView.swift; sourceTree = "<group>"; };
+		F46BA93A2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnergyGroupMembersSheet.swift; sourceTree = "<group>"; };
 		F4C0D9FE2BBD6176004D897B /* Permit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Permit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C0DA012BBD6176004D897B /* PermitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermitApp.swift; sourceTree = "<group>"; };
 		F4C0DA052BBD6177004D897B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +81,9 @@
 				F46BA8E82BD51AD900FE8422 /* FirebaseAuth in Frameworks */,
 				F46BA8EE2BD51AD900FE8422 /* FirebaseStorage in Frameworks */,
 				F46BA8EA2BD51AD900FE8422 /* FirebaseFirestore in Frameworks */,
+				F46BA9372BD676AD00FE8422 /* NukeUI in Frameworks */,
 				F46BA8EC2BD51AD900FE8422 /* FirebaseFirestoreSwift in Frameworks */,
+				F46BA9352BD676AD00FE8422 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +93,9 @@
 		F46BA8F12BD51D8C00FE8422 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F46BA91E2BD63EE400FE8422 /* Group */,
 				F46BA90E2BD588A100FE8422 /* Main */,
+				F46BA92E2BD665F400FE8422 /* Tabs */,
 				F46BA9072BD5879900FE8422 /* Login */,
 				F46BA90B2BD587EE00FE8422 /* Logout */,
 			);
@@ -85,7 +113,7 @@
 		F46BA8FA2BD52EA300FE8422 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				F46BA8FB2BD52EB500FE8422 /* LoginTextFieldModifier.swift */,
+				F46BA8FB2BD52EB500FE8422 /* RoundedTextFieldModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -122,6 +150,31 @@
 				F46BA9122BD58B5A00FE8422 /* UserManager.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		F46BA91E2BD63EE400FE8422 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				F46BA9252BD6487000FE8422 /* EnergyGroup.swift */,
+				F46BA9282BD6523100FE8422 /* EnergyGroupView.swift */,
+				F46BA9212BD6433D00FE8422 /* CreateEnergyGroupForm.swift */,
+				F46BA91F2BD63EFF00FE8422 /* CreateEnergyGroupPromptView.swift */,
+				F46BA9232BD644BB00FE8422 /* CreateEnergyGroupViewModel.swift */,
+				F46BA92A2BD65AEE00FE8422 /* EnergyGroupManager.swift */,
+				F46BA9312BD66BA800FE8422 /* EnergyGroupMembersView.swift */,
+				F46BA9382BD6781E00FE8422 /* EnergyGroupMemberRowView.swift */,
+				F46BA93A2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		F46BA92E2BD665F400FE8422 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				F46BA92C2BD665F100FE8422 /* TabsView.swift */,
+				F46BA92F2BD6664500FE8422 /* Tab.swift */,
+			);
+			path = Tabs;
 			sourceTree = "<group>";
 		};
 		F4C0D9F52BBD6176004D897B = {
@@ -204,6 +257,8 @@
 				F46BA8E92BD51AD900FE8422 /* FirebaseFirestore */,
 				F46BA8EB2BD51AD900FE8422 /* FirebaseFirestoreSwift */,
 				F46BA8ED2BD51AD900FE8422 /* FirebaseStorage */,
+				F46BA9342BD676AD00FE8422 /* Nuke */,
+				F46BA9362BD676AD00FE8422 /* NukeUI */,
 			);
 			productName = Permit;
 			productReference = F4C0D9FE2BBD6176004D897B /* Permit.app */;
@@ -235,6 +290,7 @@
 			mainGroup = F4C0D9F52BBD6176004D897B;
 			packageReferences = (
 				F46BA8E62BD51AD900FE8422 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F46BA9332BD676AD00FE8422 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = F4C0D9FF2BBD6176004D897B /* Products */;
 			projectDirPath = "";
@@ -265,13 +321,24 @@
 			files = (
 				F46BA91D2BD5C36400FE8422 /* AnyError.swift in Sources */,
 				F46BA9102BD588A800FE8422 /* MainView.swift in Sources */,
+				F46BA9392BD6781E00FE8422 /* EnergyGroupMemberRowView.swift in Sources */,
 				F46BA9132BD58B5A00FE8422 /* UserManager.swift in Sources */,
+				F46BA92B2BD65AEF00FE8422 /* EnergyGroupManager.swift in Sources */,
+				F46BA9262BD6487000FE8422 /* EnergyGroup.swift in Sources */,
 				F46BA90D2BD587FD00FE8422 /* LogoutView.swift in Sources */,
-				F46BA8FC2BD52EB500FE8422 /* LoginTextFieldModifier.swift in Sources */,
+				F46BA9302BD6664500FE8422 /* Tab.swift in Sources */,
+				F46BA9242BD644BB00FE8422 /* CreateEnergyGroupViewModel.swift in Sources */,
+				F46BA9292BD6523100FE8422 /* EnergyGroupView.swift in Sources */,
+				F46BA9202BD63EFF00FE8422 /* CreateEnergyGroupPromptView.swift in Sources */,
+				F46BA93B2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift in Sources */,
+				F46BA8FC2BD52EB500FE8422 /* RoundedTextFieldModifier.swift in Sources */,
 				F46BA8F92BD51F6000FE8422 /* FirebaseManager.swift in Sources */,
 				F4C0DA222BBD7A15004D897B /* Extensions.swift in Sources */,
 				F46BA9152BD58B7C00FE8422 /* User.swift in Sources */,
 				F46BA8F02BD51AF600FE8422 /* AppDelegate.swift in Sources */,
+				F46BA92D2BD665F100FE8422 /* TabsView.swift in Sources */,
+				F46BA9322BD66BA900FE8422 /* EnergyGroupMembersView.swift in Sources */,
+				F46BA9222BD6433D00FE8422 /* CreateEnergyGroupForm.swift in Sources */,
 				F46BA9172BD5B54F00FE8422 /* AppState.swift in Sources */,
 				F46BA8F32BD51D9400FE8422 /* LoginView.swift in Sources */,
 				F46BA8F52BD51E1E00FE8422 /* LoginViewModel.swift in Sources */,
@@ -493,6 +560,14 @@
 				version = 10.24.0;
 			};
 		};
+		F46BA9332BD676AD00FE8422 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = exactVersion;
+				version = 12.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -515,6 +590,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F46BA8E62BD51AD900FE8422 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		F46BA9342BD676AD00FE8422 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F46BA9332BD676AD00FE8422 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		F46BA9362BD676AD00FE8422 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F46BA9332BD676AD00FE8422 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

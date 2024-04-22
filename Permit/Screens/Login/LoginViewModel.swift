@@ -65,7 +65,7 @@ final class LoginViewModel: ObservableObject {
                         return
                     }
                     
-                    save(user: User(id: id, image: link.absoluteString, name: name, surname: surname, email: email, isFaceScanned: false)) { error in
+                    save(user: User(id: id, image: link.absoluteString, name: name, surname: surname, email: email)) { error in
                         completion(error)
                     }
                 }
