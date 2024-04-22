@@ -20,14 +20,16 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            if isAuthorized {
-                if let user = users.current, let group = user.group {
+            if !isAuthorized {
+                LoginView()
+            } else if let user = users.current {
+                if !user.isFaceScanned {
+                    ScanFaceView()
+                } else if let group = user.group {
                     TabsView(id: group)
                 } else {
                     CreateEnergyGroupPromptView()
                 }
-            } else {
-                LoginView()
             }
         } //: ZStack
         .animation(.default, value: isAuthorized)

@@ -36,6 +36,10 @@
 		F46BA9372BD676AD00FE8422 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F46BA9362BD676AD00FE8422 /* NukeUI */; };
 		F46BA9392BD6781E00FE8422 /* EnergyGroupMemberRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9382BD6781E00FE8422 /* EnergyGroupMemberRowView.swift */; };
 		F46BA93B2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA93A2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift */; };
+		F48B3AA22BD6F2DB009AE837 /* FaceRecognitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3A9F2BD6F2DB009AE837 /* FaceRecognitionViewModel.swift */; };
+		F48B3AA32BD6F2DB009AE837 /* ScanFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3AA02BD6F2DB009AE837 /* ScanFaceView.swift */; };
+		F48B3AA62BD6F309009AE837 /* CameraImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3AA42BD6F309009AE837 /* CameraImagePicker.swift */; };
+		F48B3AA92BD6F396009AE837 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3AA82BD6F396009AE837 /* NetworkService.swift */; };
 		F4C0DA022BBD6176004D897B /* PermitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0DA012BBD6176004D897B /* PermitApp.swift */; };
 		F4C0DA062BBD6177004D897B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0DA052BBD6177004D897B /* Assets.xcassets */; };
 		F4C0DA092BBD6177004D897B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0DA082BBD6177004D897B /* Assets.xcassets */; };
@@ -66,6 +70,10 @@
 		F46BA9312BD66BA800FE8422 /* EnergyGroupMembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyGroupMembersView.swift; sourceTree = "<group>"; };
 		F46BA9382BD6781E00FE8422 /* EnergyGroupMemberRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyGroupMemberRowView.swift; sourceTree = "<group>"; };
 		F46BA93A2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEnergyGroupMembersSheet.swift; sourceTree = "<group>"; };
+		F48B3A9F2BD6F2DB009AE837 /* FaceRecognitionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceRecognitionViewModel.swift; sourceTree = "<group>"; };
+		F48B3AA02BD6F2DB009AE837 /* ScanFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanFaceView.swift; sourceTree = "<group>"; };
+		F48B3AA42BD6F309009AE837 /* CameraImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraImagePicker.swift; sourceTree = "<group>"; };
+		F48B3AA82BD6F396009AE837 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F4C0D9FE2BBD6176004D897B /* Permit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Permit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C0DA012BBD6176004D897B /* PermitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermitApp.swift; sourceTree = "<group>"; };
 		F4C0DA052BBD6177004D897B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +106,7 @@
 				F46BA92E2BD665F400FE8422 /* Tabs */,
 				F46BA9072BD5879900FE8422 /* Login */,
 				F46BA90B2BD587EE00FE8422 /* Logout */,
+				F48B3AA12BD6F2DB009AE837 /* Recognition */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -177,6 +186,31 @@
 			path = Tabs;
 			sourceTree = "<group>";
 		};
+		F48B3AA12BD6F2DB009AE837 /* Recognition */ = {
+			isa = PBXGroup;
+			children = (
+				F48B3AA02BD6F2DB009AE837 /* ScanFaceView.swift */,
+				F48B3A9F2BD6F2DB009AE837 /* FaceRecognitionViewModel.swift */,
+			);
+			path = Recognition;
+			sourceTree = "<group>";
+		};
+		F48B3AA52BD6F309009AE837 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F48B3AA42BD6F309009AE837 /* CameraImagePicker.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F48B3AA72BD6F389009AE837 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F48B3AA82BD6F396009AE837 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		F4C0D9F52BBD6176004D897B = {
 			isa = PBXGroup;
 			children = (
@@ -198,9 +232,11 @@
 			children = (
 				F4C0DA162BBD74ED004D897B /* App */,
 				F4C0DA202BBD7A0B004D897B /* Helpers */,
+				F48B3AA72BD6F389009AE837 /* Network */,
 				F46BA8FA2BD52EA300FE8422 /* Modifiers */,
 				F46BA8F72BD51F4B00FE8422 /* Firebase */,
 				F46BA9112BD58B4C00FE8422 /* User */,
+				F48B3AA52BD6F309009AE837 /* Views */,
 				F46BA8F12BD51D8C00FE8422 /* Screens */,
 				F4C0DA072BBD6177004D897B /* Previews */,
 				F46BA8E42BD51A7300FE8422 /* GoogleService-Info.plist */,
@@ -323,7 +359,9 @@
 				F46BA9102BD588A800FE8422 /* MainView.swift in Sources */,
 				F46BA9392BD6781E00FE8422 /* EnergyGroupMemberRowView.swift in Sources */,
 				F46BA9132BD58B5A00FE8422 /* UserManager.swift in Sources */,
+				F48B3AA22BD6F2DB009AE837 /* FaceRecognitionViewModel.swift in Sources */,
 				F46BA92B2BD65AEF00FE8422 /* EnergyGroupManager.swift in Sources */,
+				F48B3AA92BD6F396009AE837 /* NetworkService.swift in Sources */,
 				F46BA9262BD6487000FE8422 /* EnergyGroup.swift in Sources */,
 				F46BA90D2BD587FD00FE8422 /* LogoutView.swift in Sources */,
 				F46BA9302BD6664500FE8422 /* Tab.swift in Sources */,
@@ -332,11 +370,13 @@
 				F46BA9202BD63EFF00FE8422 /* CreateEnergyGroupPromptView.swift in Sources */,
 				F46BA93B2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift in Sources */,
 				F46BA8FC2BD52EB500FE8422 /* RoundedTextFieldModifier.swift in Sources */,
+				F48B3AA32BD6F2DB009AE837 /* ScanFaceView.swift in Sources */,
 				F46BA8F92BD51F6000FE8422 /* FirebaseManager.swift in Sources */,
 				F4C0DA222BBD7A15004D897B /* Extensions.swift in Sources */,
 				F46BA9152BD58B7C00FE8422 /* User.swift in Sources */,
 				F46BA8F02BD51AF600FE8422 /* AppDelegate.swift in Sources */,
 				F46BA92D2BD665F100FE8422 /* TabsView.swift in Sources */,
+				F48B3AA62BD6F309009AE837 /* CameraImagePicker.swift in Sources */,
 				F46BA9322BD66BA900FE8422 /* EnergyGroupMembersView.swift in Sources */,
 				F46BA9222BD6433D00FE8422 /* CreateEnergyGroupForm.swift in Sources */,
 				F46BA9172BD5B54F00FE8422 /* AppState.swift in Sources */,
