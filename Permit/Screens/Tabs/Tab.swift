@@ -24,11 +24,14 @@ enum Tab: String, Identifiable, CaseIterable {
     }
     
     func label(isSelected: Bool) -> some View {
-        switch self {
-        case .group:
-            Label(title, systemImage: isSelected ? "person.3.fill" : "person.3")
-        case .permit:
-            Label(title, systemImage: isSelected ? "person.text.rectangle.fill" : "person.text.rectangle")
-        }
+        Group {
+            switch self {
+            case .group:
+                Label(title, systemImage: isSelected ? "person.3.fill" : "person.3")
+            case .permit:
+                Label(title, systemImage: isSelected ? "person.text.rectangle.fill" : "person.text.rectangle")
+            }
+        } //: Group
+        .environment(\.symbolVariants, .none)
     }
 }

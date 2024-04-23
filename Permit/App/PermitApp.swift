@@ -13,6 +13,7 @@ struct PermitApp: App {
     // MARK: - Properties
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var station = EnergyGroupManager()
     @StateObject private var users = UserManager()
     @StateObject private var app = AppState()
     
@@ -23,6 +24,7 @@ struct PermitApp: App {
             MainView()
                 .environmentObject(app)
                 .environmentObject(users)
+                .environmentObject(station)
                 .alert("Error", isPresented: app.isErrorAlertVisible) {
                     Button("OK") {
                         app.isErrorAlertVisible.wrappedValue = false

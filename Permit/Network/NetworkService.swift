@@ -9,6 +9,7 @@ import Foundation
 
 enum EndpointPath {
     static let scan = "http://192.168.31.39:8000/scan"
+    static let authenticate = "http://192.168.31.39:8000/authenticate"
 }
 
 enum HTTPMethod: String {

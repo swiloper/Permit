@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F41579D32BD70706000D2DA6 /* PasscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41579D22BD70706000D2DA6 /* PasscodeView.swift */; };
+		F41579D52BD71503000D2DA6 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41579D42BD71503000D2DA6 /* Entry.swift */; };
 		F46BA8E52BD51A7300FE8422 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F46BA8E42BD51A7300FE8422 /* GoogleService-Info.plist */; };
 		F46BA8E82BD51AD900FE8422 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F46BA8E72BD51AD900FE8422 /* FirebaseAuth */; };
 		F46BA8EA2BD51AD900FE8422 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F46BA8E92BD51AD900FE8422 /* FirebaseFirestore */; };
@@ -44,9 +46,12 @@
 		F4C0DA062BBD6177004D897B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0DA052BBD6177004D897B /* Assets.xcassets */; };
 		F4C0DA092BBD6177004D897B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0DA082BBD6177004D897B /* Assets.xcassets */; };
 		F4C0DA222BBD7A15004D897B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0DA212BBD7A15004D897B /* Extensions.swift */; };
+		F4C6EC492BD7CAA4007383EF /* GroupedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6EC482BD7CAA4007383EF /* GroupedSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F41579D22BD70706000D2DA6 /* PasscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeView.swift; sourceTree = "<group>"; };
+		F41579D42BD71503000D2DA6 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		F46BA8E42BD51A7300FE8422 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F46BA8EF2BD51AF600FE8422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F46BA8F22BD51D9400FE8422 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -79,6 +84,7 @@
 		F4C0DA052BBD6177004D897B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4C0DA082BBD6177004D897B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4C0DA212BBD7A15004D897B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F4C6EC482BD7CAA4007383EF /* GroupedSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F41579D12BD706F4000D2DA6 /* Passcode */ = {
+			isa = PBXGroup;
+			children = (
+				F41579D22BD70706000D2DA6 /* PasscodeView.swift */,
+			);
+			path = Passcode;
+			sourceTree = "<group>";
+		};
 		F46BA8F12BD51D8C00FE8422 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +120,7 @@
 				F46BA92E2BD665F400FE8422 /* Tabs */,
 				F46BA9072BD5879900FE8422 /* Login */,
 				F46BA90B2BD587EE00FE8422 /* Logout */,
+				F41579D12BD706F4000D2DA6 /* Passcode */,
 				F48B3AA12BD6F2DB009AE837 /* Recognition */,
 			);
 			path = Screens;
@@ -173,6 +188,7 @@
 				F46BA9312BD66BA800FE8422 /* EnergyGroupMembersView.swift */,
 				F46BA9382BD6781E00FE8422 /* EnergyGroupMemberRowView.swift */,
 				F46BA93A2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift */,
+				F41579D42BD71503000D2DA6 /* Entry.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -268,6 +284,7 @@
 			children = (
 				F46BA91C2BD5C36400FE8422 /* AnyError.swift */,
 				F4C0DA212BBD7A15004D897B /* Extensions.swift */,
+				F4C6EC482BD7CAA4007383EF /* GroupedSection.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -355,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F41579D52BD71503000D2DA6 /* Entry.swift in Sources */,
 				F46BA91D2BD5C36400FE8422 /* AnyError.swift in Sources */,
 				F46BA9102BD588A800FE8422 /* MainView.swift in Sources */,
 				F46BA9392BD6781E00FE8422 /* EnergyGroupMemberRowView.swift in Sources */,
@@ -368,6 +386,7 @@
 				F46BA9242BD644BB00FE8422 /* CreateEnergyGroupViewModel.swift in Sources */,
 				F46BA9292BD6523100FE8422 /* EnergyGroupView.swift in Sources */,
 				F46BA9202BD63EFF00FE8422 /* CreateEnergyGroupPromptView.swift in Sources */,
+				F41579D32BD70706000D2DA6 /* PasscodeView.swift in Sources */,
 				F46BA93B2BD6823000FE8422 /* AddEnergyGroupMembersSheet.swift in Sources */,
 				F46BA8FC2BD52EB500FE8422 /* RoundedTextFieldModifier.swift in Sources */,
 				F48B3AA32BD6F2DB009AE837 /* ScanFaceView.swift in Sources */,
@@ -375,6 +394,7 @@
 				F4C0DA222BBD7A15004D897B /* Extensions.swift in Sources */,
 				F46BA9152BD58B7C00FE8422 /* User.swift in Sources */,
 				F46BA8F02BD51AF600FE8422 /* AppDelegate.swift in Sources */,
+				F4C6EC492BD7CAA4007383EF /* GroupedSection.swift in Sources */,
 				F46BA92D2BD665F100FE8422 /* TabsView.swift in Sources */,
 				F48B3AA62BD6F309009AE837 /* CameraImagePicker.swift in Sources */,
 				F46BA9322BD66BA900FE8422 /* EnergyGroupMembersView.swift in Sources */,
@@ -523,8 +543,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -553,8 +572,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

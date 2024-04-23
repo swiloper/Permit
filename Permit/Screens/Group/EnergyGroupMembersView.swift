@@ -25,7 +25,7 @@ struct EnergyGroupMembersView: View {
     var body: some View {
         List {
             ForEach(group.members) { user in
-                EnergyGroupMemberRowView(member: user)
+                EnergyGroupMemberRowView(member: user, description: station.current.created == user.id ? "Manager" : .empty)
                     .listRowInsets(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16))
                     .deleteDisabled((group.created == user.id && station.current.created == users.current?.id) || station.current.created != users.current?.id)
             } //: ForEach

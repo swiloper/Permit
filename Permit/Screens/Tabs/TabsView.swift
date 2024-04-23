@@ -25,7 +25,7 @@ struct TabsView: View {
                     case .group:
                         EnergyGroupView(id: id)
                     case .permit:
-                        EmptyView()
+                        PasscodeView()
                     }
                 }
                 .tag(tab)

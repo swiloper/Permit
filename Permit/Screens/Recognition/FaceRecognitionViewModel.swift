@@ -30,6 +30,10 @@ final class FaceRecognitionViewModel: ObservableObject {
         let isRegisterCompleted: Bool
     }
     
+    struct VerifyResponse: Decodable {
+        let passcode: String
+    }
+    
     // MARK: - Permission
     
     func permission(completion: @escaping (Bool) -> Void) {
@@ -67,6 +71,26 @@ final class FaceRecognitionViewModel: ObservableObject {
         } catch {
             isLoading = false
             return (false, error)
+        }
+    }
+    
+    // MARK: - Verify
+    
+    func verify(id: String, portrait: Data) async -> (String?, Error?) {
+        isLoading = true
+        
+        let parameters: [String : Any] = [
+            "id": id,
+            "image": portrait.base64EncodedString()
+        ]
+        
+        do {
+            let response = try await NetworkService.shared.request(link: EndpointPath.authenticate, parameters: parameters, method: .post, decode: VerifyResponse.self)
+            isLoading = false
+            return (response.passcode, nil)
+        } catch {
+            isLoading = false
+            return (nil, error)
         }
     }
 }

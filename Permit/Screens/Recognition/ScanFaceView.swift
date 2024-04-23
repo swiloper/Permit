@@ -14,6 +14,8 @@ struct ScanFaceView: View {
     @EnvironmentObject private var app: AppState
     @StateObject private var model = FaceRecognitionViewModel()
     
+    // MARK: - Scan
+    
     private func scan() {
         if let selection = model.selection, let data = selection.jpegData(compressionQuality: 1), let user = FirebaseManager.shared.auth.currentUser {
             Task {

@@ -16,6 +16,7 @@ struct EnergyGroupMemberRowView: View {
     @EnvironmentObject private var station: EnergyGroupManager
     
     let member: User
+    var description: String = .empty
     
     // MARK: - Body
     
@@ -86,8 +87,8 @@ struct EnergyGroupMemberRowView: View {
     
     @ViewBuilder
     private var manager: some View {
-        if station.current.created == member.id {
-            Text("Manager")
+        if !description.isEmpty {
+            Text(description)
                 .foregroundStyle(.gray)
                 .font(.system(size: 13))
         }
@@ -103,5 +104,5 @@ struct EnergyGroupMemberRowView: View {
 // MARK: - Preview
 
 #Preview {
-    EnergyGroupMemberRowView(member: .empty)
+    EnergyGroupMemberRowView(member: .empty, description: .empty)
 }
