@@ -57,7 +57,7 @@ struct LoginView: View {
         .padding(20)
         .animation(.default, value: model.flow)
         .background {
-            Color(uiColor: .systemGray6)
+            Color(uiColor: .systemGroupedBackground)
                 .ignoresSafeArea(.all, edges: .vertical)
                 .onTapGesture {
                     UIApplication.shared.submit()

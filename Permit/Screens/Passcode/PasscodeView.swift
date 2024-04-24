@@ -133,6 +133,7 @@ struct PasscodeView: View {
             verify()
         } //: CameraImagePicker
         .background(.black)
+        .presentationCornerRadius(16)
     }
     
     // MARK: - Permit

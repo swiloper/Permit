@@ -24,14 +24,14 @@ struct CreateEnergyGroupPromptView: View {
         } //: VStack
         .padding(20)
         .sheet(isPresented: $isCreationFormVisible) {
-            CreateEnergyGroupForm()
+            EditGroupSheet(flow: .create)
         }
     }
     
     // MARK: - Content
     
     private var content: some View {
-        VStack {
+        VStack(spacing: 16) {
             image
             container
         } //: VStack
@@ -78,7 +78,7 @@ struct CreateEnergyGroupPromptView: View {
         Button {
             isCreationFormVisible.toggle()
         } label: {
-            Text("Add")
+            Text("Create")
                 .font(.system(size: 16, weight: .semibold))
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)

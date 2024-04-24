@@ -22,7 +22,7 @@ struct LogoutView: View {
             action
         } //: VStack
         .padding(20)
-        .background(Color(uiColor: .systemGray6).ignoresSafeArea(.all, edges: .vertical))
+        .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea(.all, edges: .vertical))
     }
     
     // MARK: - Action

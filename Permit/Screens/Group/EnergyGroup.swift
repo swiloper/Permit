@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct EnergyGroup: Identifiable, Codable {
+struct EnergyGroup: Identifiable, Codable, Equatable {
     let id: String
-    let name: String
-    let details: String
-    let location: String
+    var name: String
+    var details: String
+    var location: String
     let created: String
     var members: [User]
 }

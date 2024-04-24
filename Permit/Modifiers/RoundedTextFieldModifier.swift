@@ -19,9 +19,8 @@ struct RoundedTextFieldModifier: ViewModifier {
         content
             .keyboardType(keyboard)
             .autocorrectionDisabled()
-            .padding(.horizontal, 16)
-            .frame(height: 50)
-            .background(.white)
+            .padding(EdgeInsets(top: 14, leading: 16, bottom: 14, trailing: 16))
+            .background(Color(uiColor: .secondarySystemGroupedBackground))
             .clipShape(.rect(cornerRadius: 10))
     }
 }

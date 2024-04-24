@@ -41,10 +41,12 @@ struct ScanFaceView: View {
     var body: some View {
         VStack {
             spacer
+            content
+            spacer
             action
         } //: VStack
         .padding(20)
-        .background(Color(uiColor: .systemGray6).ignoresSafeArea(.all, edges: .vertical))
+        .background(Color.white.ignoresSafeArea(.all, edges: .vertical))
         .navigationBarBackButtonHidden()
         .sheet(item: $model.flow) { _ in
             picker
@@ -81,6 +83,50 @@ struct ScanFaceView: View {
             scan()
         } //: CameraImagePicker
         .background(.black)
+        .presentationCornerRadius(16)
+    }
+    
+    // MARK: - Content
+    
+    private var content: some View {
+        VStack(spacing: 16) {
+            image
+            container
+        } //: VStack
+    }
+    
+    // MARK: - Image
+    
+    private var image: some View {
+        Image(systemName: "faceid")
+            .font(.system(size: 100))
+            .padding(20)
+    }
+    
+    // MARK: - Container
+    
+    private var container: some View {
+        VStack(spacing: 10) {
+            title
+            details
+        } //: VStack
+    }
+    
+    // MARK: - Title
+    
+    private var title: some View {
+        Text("Scan")
+            .font(.system(size: 22, weight: .bold))
+            .foregroundStyle(.primary)
+    }
+    
+    // MARK: - Details
+    
+    private var details: some View {
+        Text("Scan your face for further recognition and getting access to the energy object.")
+            .multilineTextAlignment(.center)
+            .font(.system(size: 17))
+            .foregroundStyle(.gray)
     }
     
     // MARK: - Action

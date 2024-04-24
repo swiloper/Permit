@@ -43,6 +43,7 @@ struct AddEnergyGroupMembersSheet: View {
                     toolbar
                 }
         } //: NavigationStack
+        .presentationCornerRadius(16)
     }
     
     // MARK: - Content
@@ -74,7 +75,7 @@ struct AddEnergyGroupMembersSheet: View {
     private var empty: some View {
         ContentUnavailableView("Empty", systemImage: "person.fill.questionmark", description: Text("No users found."))
             .background {
-                Color(uiColor: .systemGray6)
+                Color(uiColor: .systemGroupedBackground)
                     .ignoresSafeArea(.all, edges: .vertical)
             }
     }

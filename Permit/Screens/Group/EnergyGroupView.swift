@@ -18,7 +18,7 @@ struct EnergyGroupView: View {
     @EnvironmentObject private var users: UserManager
     @EnvironmentObject private var station: EnergyGroupManager
     
-    
+    @State private var isEditGroupSheetVisible: Bool = false
     @State private var path: [EnergyGroupRoute] = []
     
     let id: String
@@ -47,6 +47,9 @@ struct EnergyGroupView: View {
                     }
                 }
         } //: NavigationStack
+        .sheet(isPresented: $isEditGroupSheetVisible) {
+            EditGroupSheet(group: station.current, flow: .edit)
+        }
         .task {
             station.fetch(with: id)
         }
@@ -78,24 +81,52 @@ struct EnergyGroupView: View {
         List {
             header
             
-            ForEach(sections, id: \.headline) { section in
-                Section(header: Text(section.headline.format(date: .long, time: .none))) {
-                    ForEach(section.rows) { entry in
-                        EnergyGroupMemberRowView(member: entry.user, description: entry.timestamp.dateValue().format(date: .none, time: .short))
-                    } //: ForEach
-                } //: Section
-            } //: ForEach
+            if sections.isEmpty {
+                empty
+            } else {
+                journal
+            }
         } //: List
+        .scrollIndicators(.hidden)
     }
     
     // MARK: - Header
     
     private var header: some View {
-        VStack(spacing: 14) {
-            container
-            members
-        } //: VStack
-        .listRowInsets(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+        Button {
+            isEditGroupSheetVisible.toggle()
+        } label: {
+            VStack(spacing: 14) {
+                container
+                members
+            } //: VStack
+            .padding(12)
+            .contentShape(.rect)
+        } //: Button
+        .buttonStyle(.plain)
+        .listRowInsets(EdgeInsets())
+    }
+    
+    // MARK: - Empty
+    
+    private var empty: some View {
+        Section {
+            ContentUnavailableView("Empty", systemImage: "list.clipboard.fill", description: Text("Attendance journal is empty."))
+                .padding(.vertical, 60)
+        } //: Section
+        .listRowBackground(Color.clear)
+    }
+    
+    // MARK: - Journal
+    
+    private var journal: some View {
+        ForEach(sections, id: \.headline) { section in
+            Section(header: Text(section.headline.format(date: .long, time: .none))) {
+                ForEach(section.rows) { entry in
+                    EnergyGroupMemberRowView(member: entry.user, description: entry.timestamp.dateValue().format(date: .none, time: .short))
+                } //: ForEach
+            } //: Section
+        } //: ForEach
     }
     
     // MARK: - Container
@@ -115,7 +146,6 @@ struct EnergyGroupView: View {
             Text("\(count) \(count == 1 ? "member" : "members")")
                 .font(.system(size: 13))
                 .foregroundStyle(.gray)
-            
             spacer
             manage
         } //: HStack
@@ -129,7 +159,7 @@ struct EnergyGroupView: View {
         } label: {
             Text(station.current.created == users.current?.id ? "Manage" : "View")
                 .font(.system(size: 15, weight: .semibold))
-                .frame(height: 28)
+                .frame(height: 32)
                 .padding(.horizontal, 12)
                 .foregroundStyle(.white)
                 .background(Color.accentColor)

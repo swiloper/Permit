@@ -73,6 +73,7 @@ struct EnergyGroupMemberRowView: View {
         Text("\(member.name) \(member.surname)")
             .foregroundStyle(.primary)
             .font(.system(size: 17))
+            .lineLimit(1)
     }
     
     // MARK: - Email
@@ -81,6 +82,7 @@ struct EnergyGroupMemberRowView: View {
         Text(member.email)
             .foregroundStyle(.gray)
             .font(.system(size: 15))
+            .lineLimit(1)
     }
     
     // MARK: - Manager
@@ -91,6 +93,7 @@ struct EnergyGroupMemberRowView: View {
             Text(description)
                 .foregroundStyle(.gray)
                 .font(.system(size: 13))
+                .lineLimit(1)
         }
     }
     

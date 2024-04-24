@@ -25,6 +25,7 @@ struct PermitApp: App {
                 .environmentObject(app)
                 .environmentObject(users)
                 .environmentObject(station)
+                .preferredColorScheme(.light)
                 .alert("Error", isPresented: app.isErrorAlertVisible) {
                     Button("OK") {
                         app.isErrorAlertVisible.wrappedValue = false
