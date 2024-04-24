@@ -138,7 +138,7 @@ struct LoginView: View {
         TextField(String.empty, text: $model.email, prompt: Text("Email"))
             .autocapitalization(.none)
             .textContentType(.oneTimeCode)
-            .modifier(RoundedTextFieldModifier(keyboard: .alphabet))
+            .modifier(RoundedTextFieldModifier(keyboard: .emailAddress))
     }
     
     // MARK: - Password

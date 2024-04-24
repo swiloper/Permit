@@ -23,6 +23,7 @@ struct CreateEnergyGroupPromptView: View {
             action
         } //: VStack
         .padding(20)
+        .ignoresSafeArea(.keyboard, edges: .vertical)
         .sheet(isPresented: $isCreationFormVisible) {
             EditGroupSheet(flow: .create)
         }

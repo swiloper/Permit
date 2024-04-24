@@ -103,7 +103,7 @@ struct EditGroupSheet: View {
     // MARK: - Name
     
     private var name: some View {
-        TextField(String.empty, text: $model.group.name, prompt: Text("Name"))
+        TextField(String.empty, text: $model.group.name, prompt: Text("Name"), axis: .vertical)
     }
     
     // MARK: - Details
@@ -115,7 +115,7 @@ struct EditGroupSheet: View {
     // MARK: - Location
     
     private var location: some View {
-        TextField(String.empty, text: $model.group.location, prompt: Text("Location"))
+        TextField(String.empty, text: $model.group.location, prompt: Text("Location"), axis: .vertical)
     }
     
     // MARK: - Action

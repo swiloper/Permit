@@ -35,6 +35,8 @@ struct PasscodeView: View {
                     } catch let error {
                         app.error = error
                     }
+                } else {
+                    app.error = AnyError.userNotVerified
                 }
             }
         }

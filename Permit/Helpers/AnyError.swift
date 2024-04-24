@@ -8,7 +8,7 @@
 import Foundation
 
 public enum AnyError: Error {
-    case userNotFound
+    case userNotFound, userNotVerified
 }
 
 extension AnyError: LocalizedError {
@@ -16,6 +16,8 @@ extension AnyError: LocalizedError {
         switch self {
         case .userNotFound:
             "Current user not found."
+        case .userNotVerified:
+            "Your identity could not be verified, you cannot receive the access code."
         }
     }
 }
