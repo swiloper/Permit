@@ -21,8 +21,8 @@ struct PasscodeView: View {
     
     // MARK: - Verify
     
-    private func verify() {
-        if let selection = model.selection, let data = selection.jpegData(compressionQuality: 1), let user = users.current, !station.current.created.isEmpty {
+    private func verify(image: UIImage) {
+        if let data = image.jpegData(compressionQuality: 1), let user = users.current, !station.current.created.isEmpty {
             Task {
                 let result = await model.verify(id: user.id, portrait: data)
                 code = result.0 ?? .empty
@@ -116,26 +116,13 @@ struct PasscodeView: View {
         } //: VStack
         .padding(20)
         .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea(.all, edges: .vertical))
-        .sheet(item: $model.flow) { _ in
-            picker
+        .fullScreenCover(item: $model.flow) { _ in
+            ScanFaceView(model: CameraViewModel()) { portraits in
+                if let first = portraits.first {
+                    verify(image: first)
+                }
+            } //: ScanFaceView
         }
-    }
-    
-    // MARK: - Picker
-    
-    @ViewBuilder
-    private var picker: some View {
-        let isCameraImagePickerPresented: Binding<Bool> = Binding {
-            model.flow != nil
-        } set: {
-            model.flow = $0 ? model.flow : nil
-        }
-        
-        CameraImagePicker(image: $model.selection, isPresented: isCameraImagePickerPresented) {
-            verify()
-        } //: CameraImagePicker
-        .background(.black)
-        .presentationCornerRadius(16)
     }
     
     // MARK: - Permit

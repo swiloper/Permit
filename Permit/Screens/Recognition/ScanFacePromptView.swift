@@ -1,5 +1,5 @@
 //
-//  ScanFaceView.swift
+//  ScanFacePromptView.swift
 //  Permit
 //
 //  Created by Ihor Myronishyn on 21.04.2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScanFaceView: View {
+struct ScanFacePromptView: View {
     
     // MARK: - Properties
     
@@ -16,10 +16,11 @@ struct ScanFaceView: View {
     
     // MARK: - Scan
     
-    private func scan() {
-        if let selection = model.selection, let data = selection.jpegData(compressionQuality: 1), let user = FirebaseManager.shared.auth.currentUser {
+    private func scan(images: [UIImage]) {
+        
+        if let user = FirebaseManager.shared.auth.currentUser {
             Task {
-                let result = await model.scan(id: user.uid, portrait: data)
+                let result = await model.scan(id: user.uid, portraits: images.map({ $0.jpegData(compressionQuality: 1)! }))
                 
                 if result.0 {
                     guard let id = FirebaseManager.shared.auth.currentUser?.uid else { return }
@@ -48,8 +49,10 @@ struct ScanFaceView: View {
         .padding(20)
         .background(Color.white.ignoresSafeArea(.all, edges: .vertical))
         .navigationBarBackButtonHidden()
-        .sheet(item: $model.flow) { _ in
-            picker
+        .fullScreenCover(item: $model.flow) { _ in
+            ScanFaceView(model: CameraViewModel(amount: 30)) { portraits in
+                scan(images: portraits)
+            } //: ScanFaceView
         }
         .alert("Camera Access Denied", isPresented: $model.isCameraAccessAlertVisible) {
             Button {
@@ -67,23 +70,6 @@ struct ScanFaceView: View {
         } message: {
             Text("Allow camera access in settings to scan your face for further recognition.")
         }
-    }
-    
-    // MARK: - Picker
-    
-    @ViewBuilder
-    private var picker: some View {
-        let isCameraImagePickerPresented: Binding<Bool> = Binding {
-            model.flow != nil
-        } set: {
-            model.flow = $0 ? model.flow : nil
-        }
-        
-        CameraImagePicker(image: $model.selection, isPresented: isCameraImagePickerPresented) {
-            scan()
-        } //: CameraImagePicker
-        .background(.black)
-        .presentationCornerRadius(16)
     }
     
     // MARK: - Content
@@ -172,5 +158,5 @@ struct ScanFaceView: View {
 // MARK: - Preview
 
 #Preview {
-    ScanFaceView()
+    ScanFacePromptView()
 }

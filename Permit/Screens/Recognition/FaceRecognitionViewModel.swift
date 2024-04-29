@@ -13,7 +13,6 @@ final class FaceRecognitionViewModel: ObservableObject {
     
     // MARK: - Properties
     
-    @Published var selection: UIImage?
     @Published var isLoading: Bool = false
     @Published var flow: Flow?
     @Published var isCameraAccessAlertVisible: Bool = false
@@ -56,12 +55,12 @@ final class FaceRecognitionViewModel: ObservableObject {
     
     // MARK: - Register
     
-    func scan(id: String, portrait: Data) async -> (Bool, Error?) {
+    func scan(id: String, portraits: [Data]) async -> (Bool, Error?) {
         isLoading = true
         
         let parameters: [String : Any] = [
             "id": id,
-            "image": portrait.base64EncodedString()
+            "images": portraits.map({ $0.base64EncodedString() })
         ]
         
         do {

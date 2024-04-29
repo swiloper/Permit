@@ -24,7 +24,7 @@ struct MainView: View {
                 LoginView()
             } else if let user = users.current {
                 if !user.isFaceScanned {
-                    ScanFaceView()
+                    ScanFacePromptView()
                 } else if let group = user.group {
                     TabsView(id: group)
                 } else {
