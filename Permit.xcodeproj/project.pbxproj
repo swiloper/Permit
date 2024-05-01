@@ -34,7 +34,6 @@
 		F46BA8F52BD51E1E00FE8422 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA8F42BD51E1E00FE8422 /* LoginViewModel.swift */; };
 		F46BA8F92BD51F6000FE8422 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA8F82BD51F6000FE8422 /* FirebaseManager.swift */; };
 		F46BA8FC2BD52EB500FE8422 /* RoundedTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA8FB2BD52EB500FE8422 /* RoundedTextFieldModifier.swift */; };
-		F46BA90D2BD587FD00FE8422 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA90C2BD587FD00FE8422 /* LogoutView.swift */; };
 		F46BA9102BD588A800FE8422 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA90F2BD588A800FE8422 /* MainView.swift */; };
 		F46BA9132BD58B5A00FE8422 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9122BD58B5A00FE8422 /* UserManager.swift */; };
 		F46BA9152BD58B7C00FE8422 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BA9142BD58B7C00FE8422 /* User.swift */; };
@@ -55,6 +54,8 @@
 		F48B3AA22BD6F2DB009AE837 /* FaceRecognitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3A9F2BD6F2DB009AE837 /* FaceRecognitionViewModel.swift */; };
 		F48B3AA32BD6F2DB009AE837 /* ScanFacePromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3AA02BD6F2DB009AE837 /* ScanFacePromptView.swift */; };
 		F48B3AA92BD6F396009AE837 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B3AA82BD6F396009AE837 /* NetworkService.swift */; };
+		F4AE30692BE27697000CCA2E /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AE30682BE27697000CCA2E /* Watch.swift */; };
+		F4AE306B2BE276B2000CCA2E /* BarProgressViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AE306A2BE276B2000CCA2E /* BarProgressViewStyle.swift */; };
 		F4C0DA022BBD6176004D897B /* PermitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C0DA012BBD6176004D897B /* PermitApp.swift */; };
 		F4C0DA062BBD6177004D897B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0DA052BBD6177004D897B /* Assets.xcassets */; };
 		F4C0DA092BBD6177004D897B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C0DA082BBD6177004D897B /* Assets.xcassets */; };
@@ -86,7 +87,6 @@
 		F46BA8F42BD51E1E00FE8422 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F46BA8F82BD51F6000FE8422 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F46BA8FB2BD52EB500FE8422 /* RoundedTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextFieldModifier.swift; sourceTree = "<group>"; };
-		F46BA90C2BD587FD00FE8422 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		F46BA90F2BD588A800FE8422 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F46BA9122BD58B5A00FE8422 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		F46BA9142BD58B7C00FE8422 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -105,6 +105,8 @@
 		F48B3A9F2BD6F2DB009AE837 /* FaceRecognitionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceRecognitionViewModel.swift; sourceTree = "<group>"; };
 		F48B3AA02BD6F2DB009AE837 /* ScanFacePromptView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanFacePromptView.swift; sourceTree = "<group>"; };
 		F48B3AA82BD6F396009AE837 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F4AE30682BE27697000CCA2E /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
+		F4AE306A2BE276B2000CCA2E /* BarProgressViewStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressViewStyle.swift; sourceTree = "<group>"; };
 		F4C0D9FE2BBD6176004D897B /* Permit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Permit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C0DA012BBD6176004D897B /* PermitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermitApp.swift; sourceTree = "<group>"; };
 		F4C0DA052BBD6177004D897B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		F41579D12BD706F4000D2DA6 /* Passcode */ = {
 			isa = PBXGroup;
 			children = (
+				F4AE30682BE27697000CCA2E /* Watch.swift */,
 				F41579D22BD70706000D2DA6 /* PasscodeView.swift */,
 			);
 			path = Passcode;
@@ -188,7 +191,6 @@
 				F46BA90E2BD588A100FE8422 /* Main */,
 				F46BA92E2BD665F400FE8422 /* Tabs */,
 				F46BA9072BD5879900FE8422 /* Login */,
-				F46BA90B2BD587EE00FE8422 /* Logout */,
 				F41579D12BD706F4000D2DA6 /* Passcode */,
 				F48B3AA12BD6F2DB009AE837 /* Recognition */,
 			);
@@ -218,14 +220,6 @@
 				F46BA8F42BD51E1E00FE8422 /* LoginViewModel.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		F46BA90B2BD587EE00FE8422 /* Logout */ = {
-			isa = PBXGroup;
-			children = (
-				F46BA90C2BD587FD00FE8422 /* LogoutView.swift */,
-			);
-			path = Logout;
 			sourceTree = "<group>";
 		};
 		F46BA90E2BD588A100FE8422 /* Main */ = {
@@ -348,6 +342,7 @@
 				F41DB2122BD9265600F170D8 /* ViewSizeKey.swift */,
 				F4C6EC482BD7CAA4007383EF /* GroupedSection.swift */,
 				F41DB2142BD9266400F170D8 /* ReadSizeModifier.swift */,
+				F4AE306A2BE276B2000CCA2E /* BarProgressViewStyle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -450,7 +445,6 @@
 				F40386882BDED8C8006C2056 /* CameraViewController.swift in Sources */,
 				F48B3AA92BD6F396009AE837 /* NetworkService.swift in Sources */,
 				F46BA9262BD6487000FE8422 /* EnergyGroup.swift in Sources */,
-				F46BA90D2BD587FD00FE8422 /* LogoutView.swift in Sources */,
 				F46BA9302BD6664500FE8422 /* Tab.swift in Sources */,
 				F46BA9242BD644BB00FE8422 /* EditEnergyGroupViewModel.swift in Sources */,
 				F40386962BDFC603006C2056 /* FaceQualityModel.swift in Sources */,
@@ -478,7 +472,9 @@
 				F46BA8F32BD51D9400FE8422 /* LoginView.swift in Sources */,
 				F46BA8F52BD51E1E00FE8422 /* LoginViewModel.swift in Sources */,
 				F40386902BDFB797006C2056 /* CameraControlsView.swift in Sources */,
+				F4AE30692BE27697000CCA2E /* Watch.swift in Sources */,
 				F4C0DA022BBD6176004D897B /* PermitApp.swift in Sources */,
+				F4AE306B2BE276B2000CCA2E /* BarProgressViewStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
