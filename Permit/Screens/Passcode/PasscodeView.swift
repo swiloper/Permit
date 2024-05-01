@@ -9,17 +9,92 @@ import NukeUI
 import SwiftUI
 import FirebaseFirestore
 
+struct BarProgressViewStyle: ProgressViewStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        ProgressView(configuration)
+            .frame(height: 12)
+            .scaleEffect(y: 3, anchor: .center)
+            .clipShape(.capsule)
+    }
+}
+
+extension Array where Element: UIColor {
+    func intermediate(percentage: CGFloat) -> UIColor {
+        let percentage = Swift.max(Swift.min(percentage, 100), 0) / 100
+        switch percentage {
+        case 0: return first ?? .clear
+        case 1: return last ?? .clear
+        default:
+            let approxIndex = percentage / (1 / CGFloat(count - 1))
+            let firstIndex = Int(approxIndex.rounded(.down))
+            let secondIndex = Int(approxIndex.rounded(.up))
+            let fallbackIndex = Int(approxIndex.rounded())
+
+            let firstColor = self[firstIndex]
+            let secondColor = self[secondIndex]
+            let fallbackColor = self[fallbackIndex]
+
+            var (r1, g1, b1, a1): (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+            var (r2, g2, b2, a2): (CGFloat, CGFloat, CGFloat, CGFloat) = (0, 0, 0, 0)
+            guard firstColor.getRed(&r1, green: &g1, blue: &b1, alpha: &a1) else { return fallbackColor }
+            guard secondColor.getRed(&r2, green: &g2, blue: &b2, alpha: &a2) else { return fallbackColor }
+
+            let intermediatePercentage = approxIndex - CGFloat(firstIndex)
+            return UIColor(red: CGFloat(r1 + (r2 - r1) * intermediatePercentage),
+                           green: CGFloat(g1 + (g2 - g1) * intermediatePercentage),
+                           blue: CGFloat(b1 + (b2 - b1) * intermediatePercentage),
+                           alpha: CGFloat(a1 + (a2 - a1) * intermediatePercentage))
+        }
+    }
+}
+
+final class Watch: ObservableObject {
+    
+    // MARK: - Properties
+    
+    @Published var remains: Double = 60000
+    private var timer = Timer()
+    
+    // MARK: - Methods
+    
+    func start() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { _ in
+            self.remains -= 1
+        }
+    }
+    
+    func stop() {
+        timer.invalidate()
+    }
+    
+    func reset() {
+        remains = 60000
+        timer.invalidate()
+    }
+}
+
 struct PasscodeView: View {
     
     // MARK: - Properties
     
+    @Environment(\.scenePhase) var phase
+    
     @EnvironmentObject private var app: AppState
     @EnvironmentObject private var users: UserManager
     @EnvironmentObject private var station: EnergyGroupManager
+    
     @StateObject private var model = FaceRecognitionViewModel()
+    @StateObject private var watch = Watch()
+    
     @State private var code: String = .empty
     
-    // MARK: - Verify
+    // MARK: - Methods
+    
+    private func reset() {
+        code = .empty
+        watch.stop()
+        watch.reset()
+    }
     
     private func verify(image: UIImage) {
         if let data = image.jpegData(compressionQuality: 1), let user = users.current, !station.current.created.isEmpty {
@@ -28,6 +103,8 @@ struct PasscodeView: View {
                 code = result.0 ?? .empty
                 
                 if !code.isEmpty {
+                    watch.start()
+                    
                     do {
                         let document = FirebaseManager.shared.firestore.collection("groups").document(station.current.id).collection("journal").document()
                         let entry = Entry(id: document.documentID, user: user, timestamp: Timestamp())
@@ -70,6 +147,16 @@ struct PasscodeView: View {
                     Text("Allow camera access in settings to scan your face for recognition.")
                 }
         } //: NavigationStack
+        .onChange(of: phase) {
+            if $1 == .background {
+                reset()
+            }
+        }
+        .onReceive(watch.$remains) { value in
+            if value == .zero {
+                reset()
+            }
+        }
     }
     
     // MARK: - Avatar
@@ -110,6 +197,8 @@ struct PasscodeView: View {
         VStack {
             spacer
             permit
+            progress
+            prompt
             spacer
             spacer
             action
@@ -154,6 +243,32 @@ struct PasscodeView: View {
         } //: HStack
     }
     
+    // MARK: - Progress
+    
+    @ViewBuilder
+    private var progress: some View {
+        if !code.isEmpty {
+            let progress: Double = watch.remains / 60000
+            
+            ProgressView(value: progress)
+                .progressViewStyle(BarProgressViewStyle())
+                .tint(Color(uiColor: [.systemRed, .systemYellow, .systemGreen].intermediate(percentage: progress * 100)))
+                .rotationEffect(.radians(.pi))
+                .padding(EdgeInsets(top: 12, leading: .zero, bottom: 6, trailing: .zero))
+                .animation(.default, value: progress)
+        }
+    }
+    
+    // MARK: - Prompt
+    
+    private var prompt: some View {
+        Text(code.isEmpty ? "Confirm your identity to receive a new access code." : "You have \(Int(watch.remains / 1000)) seconds to redeem the code.")
+            .multilineTextAlignment(.center)
+            .foregroundStyle(.gray)
+            .font(.system(size: 15))
+            .padding(.vertical, 8)
+    }
+    
     // MARK: - Action
     
     private var action: some View {
@@ -185,6 +300,7 @@ struct PasscodeView: View {
         } //: Button
         .background(Color.accentColor)
         .clipShape(.rect(cornerRadius: 10))
+        .disabled(!code.isEmpty)
     }
     
     // MARK: - Spacer
