@@ -96,6 +96,8 @@ final class CameraViewModel: ObservableObject {
             publishFaceQualityObservation(quality)
         case .takePhoto:
             takePhoto()
+//        case .savePhoto(let image):
+//            savePhoto(image)
         }
     }
     
@@ -131,6 +133,10 @@ final class CameraViewModel: ObservableObject {
     private func takePhoto() {
         shutterReleased.send()
     }
+    
+//    private func savePhoto(_ photo: UIImage) {
+//        UIImageWriteToSavedPhotosAlbum(photo, nil, nil, nil)
+//    }
 }
 
 // MARK: Updates
@@ -147,7 +153,7 @@ extension CameraViewModel {
         switch faceGeometryState {
         case .faceNotFound:
             invalidateFaceGeometryState()
-        case .errored(let error):
+        case .errored(_):
             invalidateFaceGeometryState()
         case .faceFound(let faceGeometryModel):
             let boundingBox = faceGeometryModel.boundingBox
@@ -186,7 +192,7 @@ extension CameraViewModel {
         switch faceQualityState {
         case .faceNotFound:
             isAcceptableQuality = false
-        case .errored(let error):
+        case .errored(_):
             isAcceptableQuality = false
         case .faceFound(let model):
             if model.quality < 0.2 {
@@ -216,6 +222,7 @@ extension CameraViewModel {
         case faceObservationDetected(FaceGeometryModel)
         case faceQualityObservationDetected(FaceQualityModel)
         case takePhoto
+//        case savePhoto(UIImage)
     }
     
     enum FaceDetectedState {

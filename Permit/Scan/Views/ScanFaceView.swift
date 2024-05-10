@@ -15,7 +15,7 @@ struct ScanFaceView: View {
     @ObservedObject private(set) var model: CameraViewModel
     private(set) var competion: ([UIImage]) -> Void
     
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    private let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     private let padding: CGFloat = 60
     
     // MARK: - Init

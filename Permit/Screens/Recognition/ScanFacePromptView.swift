@@ -50,7 +50,7 @@ struct ScanFacePromptView: View {
         .background(Color.white.ignoresSafeArea(.all, edges: .vertical))
         .navigationBarBackButtonHidden()
         .fullScreenCover(item: $model.flow) { _ in
-            ScanFaceView(model: CameraViewModel(amount: 30)) { portraits in
+            ScanFaceView(model: CameraViewModel(amount: 60)) { portraits in
                 scan(images: portraits)
             } //: ScanFaceView
         }

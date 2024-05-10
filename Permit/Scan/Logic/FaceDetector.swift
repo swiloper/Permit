@@ -141,9 +141,44 @@ extension FaceDetector {
             
             let context = CIContext()
             if let cgImage = context.createCGImage(outputImage, from: photoRect) {
-                let passportPhoto = UIImage(cgImage: cgImage, scale: 1, orientation: .upMirrored)
-                model.portraits.append(passportPhoto)
+                var photo = UIImage(cgImage: cgImage, scale: 1, orientation: .upMirrored)
+                
+                if let resized = self.resizeImage(image: photo, targetSize: CGSize(width: 180, height: 180)) {
+                    photo = resized
+                }
+                
+                model.portraits.append(photo)
+                
+//                DispatchQueue.main.async {
+//                    model.perform(action: .savePhoto(photo))
+//                }
             }
         }
+    }
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle.
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below.
+        let rect = CGRect(origin: .zero, size: CGSize(width: newSize.width, height: newSize.height))
+        
+        // Actually do the resizing to the rect using the ImageContext stuff.
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }
