@@ -24,6 +24,7 @@
 		F41DB2112BD917CE00F170D8 /* EditGroupSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41DB2102BD917CE00F170D8 /* EditGroupSheet.swift */; };
 		F41DB2132BD9265600F170D8 /* ViewSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41DB2122BD9265600F170D8 /* ViewSizeKey.swift */; };
 		F41DB2152BD9266400F170D8 /* ReadSizeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41DB2142BD9266400F170D8 /* ReadSizeModifier.swift */; };
+		F41DF8302C0E72860099A1E2 /* app.py in Resources */ = {isa = PBXBuildFile; fileRef = F41DF82F2C0E72860099A1E2 /* app.py */; };
 		F46BA8E52BD51A7300FE8422 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F46BA8E42BD51A7300FE8422 /* GoogleService-Info.plist */; };
 		F46BA8E82BD51AD900FE8422 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F46BA8E72BD51AD900FE8422 /* FirebaseAuth */; };
 		F46BA8EA2BD51AD900FE8422 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F46BA8E92BD51AD900FE8422 /* FirebaseFirestore */; };
@@ -81,6 +82,7 @@
 		F41DB2102BD917CE00F170D8 /* EditGroupSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupSheet.swift; sourceTree = "<group>"; };
 		F41DB2122BD9265600F170D8 /* ViewSizeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSizeKey.swift; sourceTree = "<group>"; };
 		F41DB2142BD9266400F170D8 /* ReadSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadSizeModifier.swift; sourceTree = "<group>"; };
+		F41DF82F2C0E72860099A1E2 /* app.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = app.py; sourceTree = "<group>"; };
 		F46BA8E42BD51A7300FE8422 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F46BA8EF2BD51AF600FE8422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F46BA8F22BD51D9400FE8422 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 				F41579D22BD70706000D2DA6 /* PasscodeView.swift */,
 			);
 			path = Passcode;
+			sourceTree = "<group>";
+		};
+		F41DF82E2C0E726E0099A1E2 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				F41DF82F2C0E72860099A1E2 /* app.py */,
+			);
+			path = Server;
 			sourceTree = "<group>";
 		};
 		F46BA8F12BD51D8C00FE8422 /* Screens */ = {
@@ -310,6 +320,7 @@
 				F40386732BDED871006C2056 /* Scan */,
 				F46BA8F12BD51D8C00FE8422 /* Screens */,
 				F4C0DA072BBD6177004D897B /* Previews */,
+				F41DF82E2C0E726E0099A1E2 /* Server */,
 				F46BA8E42BD51A7300FE8422 /* GoogleService-Info.plist */,
 				F4C0DA052BBD6177004D897B /* Assets.xcassets */,
 			);
@@ -419,6 +430,7 @@
 			files = (
 				F4C0DA092BBD6177004D897B /* Assets.xcassets in Resources */,
 				F4C0DA062BBD6177004D897B /* Assets.xcassets in Resources */,
+				F41DF8302C0E72860099A1E2 /* app.py in Resources */,
 				F46BA8E52BD51A7300FE8422 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
