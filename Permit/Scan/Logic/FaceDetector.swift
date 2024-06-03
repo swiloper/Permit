@@ -148,10 +148,6 @@ extension FaceDetector {
                 }
                 
                 model.portraits.append(photo)
-                
-//                DispatchQueue.main.async {
-//                    model.perform(action: .savePhoto(photo))
-//                }
             }
         }
     }

@@ -96,8 +96,6 @@ final class CameraViewModel: ObservableObject {
             publishFaceQualityObservation(quality)
         case .takePhoto:
             takePhoto()
-//        case .savePhoto(let image):
-//            savePhoto(image)
         }
     }
     
@@ -133,10 +131,6 @@ final class CameraViewModel: ObservableObject {
     private func takePhoto() {
         shutterReleased.send()
     }
-    
-//    private func savePhoto(_ photo: UIImage) {
-//        UIImageWriteToSavedPhotosAlbum(photo, nil, nil, nil)
-//    }
 }
 
 // MARK: Updates
@@ -222,7 +216,6 @@ extension CameraViewModel {
         case faceObservationDetected(FaceGeometryModel)
         case faceQualityObservationDetected(FaceQualityModel)
         case takePhoto
-//        case savePhoto(UIImage)
     }
     
     enum FaceDetectedState {
